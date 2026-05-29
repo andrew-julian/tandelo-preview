@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tandelo — Premium Native Content Placement</title>
+  <meta name="description" content="Tandelo places quality editorial content across a network of premium digital publications. Reach real, engaged readers.">
+  <link rel="stylesheet" href="_shared.css">
+  <style>
+    /* HERO */
+    .hero {
+      background: var(--dark);
+      padding: 120px 80px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(42,124,108,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: 30%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      max-width: 800px;
+      margin-bottom: 28px;
+      letter-spacing: -1.5px;
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 20px;
+      color: rgba(255,255,255,0.65);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .hero-trust {
+      margin-top: 80px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-trust-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    .hero-stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* PROPOSITION */
+    .proposition {
+      background: var(--off-white);
+      padding: 96px 80px;
+    }
+    .proposition-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .prop-visual {
+      background: var(--dark);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .prop-visual::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(42,124,108,0.3) 0%, transparent 70%);
+    }
+    .prop-visual-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--teal-light);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .prop-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .prop-step:last-child { margin-bottom: 0; }
+    .prop-step-num {
+      width: 28px;
+      height: 28px;
+      background: var(--gold);
+      color: var(--dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .prop-step-title {
+      font-weight: 600;
+      color: var(--white);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .prop-step-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* PILLARS */
+    .pillars { background: var(--white); padding: 96px 80px; }
+    .pillars-inner { max-width: 1100px; margin: 0 auto; }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .pillar-card {
+      background: var(--off-white);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      border: 1px solid #e8e4df;
+    }
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(42,124,108,0.12);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .pillar-title {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .pillar-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* NETWORK PREVIEW */
+    .network-preview { background: var(--dark); padding: 96px 80px; }
+    .network-preview-inner { max-width: 1100px; margin: 0 auto; }
+    .network-preview .section-title { color: var(--white); }
+    .network-preview .section-subtitle { color: rgba(255,255,255,0.6); }
+    .network-preview .section-label { color: var(--gold); }
+    .pub-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .pub-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all 0.2s;
+    }
+    .pub-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .pub-card.flagship {
+      border-color: rgba(232,168,76,0.3);
+      background: rgba(232,168,76,0.04);
+    }
+    .pub-flag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .pub-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .pub-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .pub-stats {
+      display: flex;
+      gap: 24px;
+    }
+    .pub-stat-num {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .pub-stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+    }
+    .pub-card.coming-soon {
+      opacity: 0.5;
+      cursor: default;
+    }
+    .pub-card.coming-soon:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    /* PRICING TEASER */
+    .pricing-teaser { background: var(--off-white); padding: 96px 80px; }
+    .pricing-teaser-inner { max-width: 1100px; margin: 0 auto; }
+    .pricing-tiers {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+      max-width: 780px;
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid #e8e4df;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+    .pricing-card.featured {
+      border-color: var(--teal);
+      background: #f0faf8;
+    }
+    .pricing-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .pricing-card.featured .pricing-card-label { color: var(--teal); }
+    .pricing-price {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+    .pricing-price-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .pricing-features { list-style: none; }
+    .pricing-features li {
+      font-size: 14px;
+      color: var(--text-muted);
+      padding: 7px 0;
+      border-bottom: 1px solid #f0ede8;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* CTA */
+    .cta-band {
+      background: var(--teal);
+      padding: 80px;
+      text-align: center;
+    }
+    .cta-band-inner { max-width: 640px; margin: 0 auto; }
+    .cta-band h2 {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .cta-band p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .cta-band-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .hero { padding: 80px 24px 60px; }
+      .hero-headline { font-size: 40px; }
+      .proposition-inner { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pub-cards { grid-template-columns: 1fr; }
+      .pricing-tiers { grid-template-columns: 1fr; max-width: 100%; }
+      .cta-band { padding: 60px 24px; }
+      .hero-trust { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">T</div>
+    <span class="nav-logo-text">Tandelo</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="network.html">Our Network</a></li>
+    <li><a href="services.html">Services & Pricing</a></li>
+    <li><a href="standards.html">Content Standards</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Premium Native Content Network</div>
+    <h1 class="hero-headline">
+      Quality content.<br><em>Real audiences.</em>
+    </h1>
+    <p class="hero-sub">
+      Tandelo places editorial-quality articles across a curated network of digital publications — connecting brands and agencies with readers who actually engage.
+    </p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-primary">Get Started</a>
+      <a href="services.html" class="btn btn-outline">View Pricing</a>
+    </div>
+
+    <div class="hero-trust">
+      <span class="hero-trust-label">By the numbers</span>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3,000+</div>
+        <div class="hero-stat-label">Articles placed per year</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2M+</div>
+        <div class="hero-stat-label">Monthly readers</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">40+</div>
+        <div class="hero-stat-label">Content categories</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1 day</div>
+        <div class="hero-stat-label">Typical turnaround</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="proposition">
+  <div class="proposition-inner">
+    <div>
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">Editorial placement, simplified</h2>
+      <p class="section-subtitle">
+        Submit your content, we review it against our editorial standards, and place it permanently across our network — indexed, do-follow, and live within one business day.
+      </p>
+      <div style="margin-top: 36px;">
+        <a href="contact.html" class="btn btn-dark">Submit an article</a>
+      </div>
+    </div>
+    <div class="prop-visual">
+      <div class="prop-visual-label">The Tandelo process</div>
+      <div class="prop-step">
+        <div class="prop-step-num">1</div>
+        <div>
+          <div class="prop-step-title">Submit your article</div>
+          <div class="prop-step-desc">Send us your content via our intake form. Include your preferred do-follow link and target publication.</div>
+        </div>
+      </div>
+      <div class="prop-step">
+        <div class="prop-step-num">2</div>
+        <div>
+          <div class="prop-step-title">Editorial review</div>
+          <div class="prop-step-desc">Our team reviews against the Tandelo Content Standards — quality, relevance, and category classification.</div>
+        </div>
+      </div>
+      <div class="prop-step">
+        <div class="prop-step-num">3</div>
+        <div>
+          <div class="prop-step-title">Invoice & publish</div>
+          <div class="prop-step-desc">You receive an invoice. On payment, the article goes live — permanently, with full SEO indexing.</div>
+        </div>
+      </div>
+      <div class="prop-step">
+        <div class="prop-step-num">4</div>
+        <div>
+          <div class="prop-step-title">Live and indexed</div>
+          <div class="prop-step-desc">Articles are auto-submitted for indexing on publication and remain live indefinitely.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="pillars-inner">
+    <div class="section-label">Why Tandelo</div>
+    <h2 class="section-title">Not all placements are equal</h2>
+    <p class="section-subtitle">We built Tandelo around one idea: that native content works best when it's genuinely editorial, on genuinely engaged publications.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">📰</div>
+        <div class="pillar-title">Real publications, real readers</div>
+        <p class="pillar-desc">Our network consists of established digital publications with organic audiences — not link farms or ghost sites. Your content appears alongside editorial content readers trust.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">✅</div>
+        <div class="pillar-title">Editorial review on every article</div>
+        <p class="pillar-desc">Every submission goes through our content standards process. This keeps quality high across the network and protects your brand from appearing alongside low-quality content.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🔗</div>
+        <div class="pillar-title">Do-follow links that hold</div>
+        <p class="pillar-desc">Articles are published with do-follow links and stay live permanently. No time limits, no removal — and auto-submitted for indexing at the moment of publication.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">⚡</div>
+        <div class="pillar-title">One business day turnaround</div>
+        <p class="pillar-desc">Standard turnaround is one business day from submission. Partners on our volume programs get dedicated editorial queues and priority processing.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🌐</div>
+        <div class="pillar-title">Growing publication network</div>
+        <p class="pillar-desc">Tandelo represents multiple publications across different audiences and geographies. As the network grows, your content reaches new audiences without changing your workflow.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🤝</div>
+        <div class="pillar-title">Partner program for agencies</div>
+        <p class="pillar-desc">Running volume? Our Bronze, Silver, and Gold partner tiers offer priority queuing, dedicated contacts, and rebates for agencies placing content regularly across our network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK PREVIEW -->
+<section class="network-preview">
+  <div class="network-preview-inner">
+    <div class="section-label">Our Network</div>
+    <h2 class="section-title">Premium publications. Engaged readers.</h2>
+    <p class="section-subtitle">Tandelo's network spans established digital publications with real, loyal audiences. We're selective about what we add — every publication meets our quality bar.</p>
+    <div class="pub-cards">
+      <div class="pub-card flagship">
+        <div class="pub-flag">Flagship publication</div>
+        <div class="pub-name">inkl</div>
+        <p class="pub-desc">A premium digital news subscription platform reaching millions of engaged readers globally. Quality journalism from hundreds of world-class sources.</p>
+        <div class="pub-stats">
+          <div>
+            <div class="pub-stat-num">2M+</div>
+            <div class="pub-stat-label">Monthly readers</div>
+          </div>
+          <div>
+            <div class="pub-stat-num">Global</div>
+            <div class="pub-stat-label">Audience reach</div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card coming-soon">
+        <div class="pub-flag" style="color: rgba(255,255,255,0.3);">Coming soon</div>
+        <div class="pub-name" style="color: rgba(255,255,255,0.4);">Publication #2</div>
+        <p class="pub-desc">New publications are added to the Tandelo network as they meet our quality and audience standards.</p>
+        <div class="pub-stats">
+          <div>
+            <div class="pub-stat-num" style="color: rgba(255,255,255,0.3);">TBA</div>
+            <div class="pub-stat-label">2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card coming-soon">
+        <div class="pub-flag" style="color: rgba(255,255,255,0.3);">Coming soon</div>
+        <div class="pub-name" style="color: rgba(255,255,255,0.4);">Publication #3</div>
+        <p class="pub-desc">We're actively growing the Tandelo network. More publications means more audiences and more placement options for your content.</p>
+        <div class="pub-stats">
+          <div>
+            <div class="pub-stat-num" style="color: rgba(255,255,255,0.3);">TBA</div>
+            <div class="pub-stat-label">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 40px;">
+      <a href="network.html" class="btn btn-outline">About our network →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TEASER -->
+<section class="pricing-teaser">
+  <div class="pricing-teaser-inner">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <p class="section-subtitle">No hidden fees. Pay per article, or join our partner program for volume discounts and priority service.</p>
+    <div class="pricing-tiers">
+      <div class="pricing-card featured">
+        <div class="pricing-card-label">Standard placement</div>
+        <div class="pricing-price">$75</div>
+        <div class="pricing-price-note">per article · general topics</div>
+        <ul class="pricing-features">
+          <li>Up to 2,000 words</li>
+          <li>Up to 4 do-follow links</li>
+          <li>Up to 4 images</li>
+          <li>Permanent placement</li>
+          <li>Auto-indexed on publish</li>
+          <li>1 business day TAT</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-card-label">Restricted placement</div>
+        <div class="pricing-price">$175</div>
+        <div class="pricing-price-note">per article · sensitive categories</div>
+        <ul class="pricing-features">
+          <li>Gambling, crypto, dating, finance</li>
+          <li>Sensitive medical/cosmetic</li>
+          <li>All Standard inclusions</li>
+          <li>Enhanced editorial review</li>
+          <li>Permanent placement</li>
+          <li>1 business day TAT</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 32px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+      <a href="services.html" class="btn btn-dark">Full pricing & add-ons</a>
+      <span style="font-size: 14px; color: var(--text-muted);">Section upgrades +$40 · Extra links +$30 · Partner discounts available</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <h2>Ready to place your first article?</h2>
+    <p>Submit your content and we'll have it live within one business day. Questions? We're here.</p>
+    <div class="cta-band-actions">
+      <a href="contact.html" class="btn btn-primary">Get Started</a>
+      <a href="services.html" class="btn btn-outline">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Tandelo</div>
+      <p class="footer-brand-desc">Premium native content placement across a curated network of digital publications. Quality content, real audiences.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="network.html">Our publications</a></li>
+        <li><a href="network.html#audiences">Our audiences</a></li>
+        <li><a href="network.html#categories">Content categories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Pricing</a></li>
+        <li><a href="services.html#partners">Partner program</a></li>
+        <li><a href="standards.html">Content standards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Get started</a></li>
+        <li><a href="contact.html#faq">FAQ</a></li>
+        <li><a href="mailto:hello@tandelo.com">hello@tandelo.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Tandelo. All rights reserved.</span>
+    <div style="display: flex; gap: 24px;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
